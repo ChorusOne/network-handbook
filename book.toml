@@ -1,6 +1,6 @@
 [book]
-authors = ["Ruud van Asseldonk"]
+title = "The Network Handbook"
+authors = ["Chorus One"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Chorus One Node Software Handbook"
