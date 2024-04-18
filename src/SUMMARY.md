@@ -2,4 +2,7 @@
 
 [Introduction](introduction.md)
 
-- [Chapter 1](./chapter_1.md)
+
+ - [How Chorus One Operates Nodes](ops-intro.md)
+
+ - [Node Software Best Practices](node-intro.md)
