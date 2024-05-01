@@ -13,3 +13,4 @@
 
  - [Node Software Guide](node-software/intro.md)
    - [Open source software](node-software/open-source.md)
+   - [Software development best practices](node-software/development-practices.md)

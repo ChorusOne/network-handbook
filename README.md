@@ -25,6 +25,8 @@ details. To start a local preview server:
    keep it under 80 columns if possible, but break at a logical point, don't fill
    up the line. (If we would fill up the line, a small change can cause the
    entire paragraph to re-flow, which pollutes the diff.)
+ * In a list of best practices, prefer level-4 headings (`####`) per item over
+   using an enumeration. This facilitates linking to individual recommendations.
 
 ## License
 
