@@ -4,3 +4,6 @@ authors = ["Chorus One"]
 language = "en"
 multilingual = false
 src = "src"
+
+[output.html]
+additional-css = ["src/custom.css"]

@@ -1,0 +1,4 @@
+/* Prevent footnote references from making the line too tall and creating a vertical gap. */
+sup {
+  line-height: 0;
+}
