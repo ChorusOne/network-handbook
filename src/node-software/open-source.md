@@ -21,8 +21,8 @@ is publicly released under an [OSI-approved license][osi].
 
 While access to the source code
 in theory allows anybody to review it for back doors and other issues,
-any active codebase quickly grows so large
-that it is no longer feasible for a single person to review all of it.
+almost any successful software project quickly grows so large
+that it is no longer feasible for a single person to review all of it.[^smart-contract]
 How then, could anybody trust a large project?
 Large projects don’t appear out of nowhere,
 they were built over time by making many small changes,
@@ -36,14 +36,19 @@ That doesn’t mean that authors need to disclose their identity
 — it is possible for a pseudonymous author to establish a track record over time.
 However, when there is a code dump that adds half a million lines of code in a single commit,
 then it’s impossible to establish the provenance of that code,
-which makes it difficult to trust.
+which makes the project difficult to trust.
 
-In addition to this, a good source control history is a valuable tool for developers,
+In addition to trust reasons,
+having good source control history is simply good practice for any software project.
+A good history is a valuable tool for developers,
 both for debugging (e.g. with `git bisect`) and understanding the context of a piece of code
 (e.g. with `git log` and `git blame`).
 We as node operators occasionally have to dive into the source code of a network as well,
 and access to the history is very helpful for us
 to understand why a piece of code works in a certain way.
+
+[^smart-contract]: One notable exception to this are smart contracts,
+which for many reasons have to be kept deliberately small.
 
 ## Stealth launches
 
