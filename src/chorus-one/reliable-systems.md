@@ -45,8 +45,10 @@ This means it doesn’t protect against natural disasters.
 
 * **Block device-level replication is not needed.**
 By their nature, every node in a blockchain network stores the same data.[^erasure-coding]
+Furthermore, the node software already has a replication protocol built in:
+the regular p2p data distribution code.
 This means we do not need to have replication at the block device or file system layer:
-we can simply run multiple instances of the node software instead.
+we can simply run multiple instances of the node software.
 
 For the non-public data that we cannot afford to lose
 (in particular, cryptographic keys)
