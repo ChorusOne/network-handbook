@@ -6,6 +6,8 @@ networks at scale. The goal of this book is to help networks take the quality of
 their node software and operational procedures to the next level, to help build
 stable and mature mainnets.
 
+You can read the book at <TODO: Add hyperlink to hosted version>.
+
 ## Building
 
 The book is built with [mdBook][mdBook], see the upstream documentation for more
