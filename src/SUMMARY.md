@@ -9,5 +9,6 @@
    - [The unique challenges of bare metal](chorus-one/bare-metal-challenges.md)
    - [Building reliable systems from unreliable parts](chorus-one/reliable-systems.md)
    - [Workload placement](chorus-one/workload-placement.md)
+   - [Oncall rotation](chorus-one/oncall-rotation.md)
 
  - [Node Software Best Practices](node-intro.md)
