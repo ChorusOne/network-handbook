@@ -11,4 +11,4 @@
    - [Workload placement](chorus-one/workload-placement.md)
    - [Oncall rotation](chorus-one/oncall-rotation.md)
 
- - [Node Software Best Practices](node-intro.md)
+ - [Node Software Guide](node-software/intro.md)
