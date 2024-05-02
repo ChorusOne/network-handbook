@@ -132,3 +132,50 @@ we do not get to choose which transport to use.
 The urls are determined by the `.gitmodules` file in the top-level repository.
 
 [git-transfer]: https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols
+
+
+## Release metadata
+
+When we learn about a new release,
+for example because our automation picked up a new Git tag,
+we triage it:
+
+ * Does this release apply to us at all?
+   Is there a change in the software we run?
+ * Is it a stable release intended for mainnet,
+   or a pre-release intended for testing?
+ * Do we need to update at all?
+   For example, if there is a bugfix in a feature we don’t use,
+   it makes no sense for us to restart our nodes and incur downtime,
+   when our nodes will not be doing anything new.
+ * What is the priority?
+   Does this fix a critical bug that impacts the network or our operations?
+   Are assets at risk if we don’t update soon?
+ * Is there an associated deadline (for example, for a hard fork)?
+
+To be able to do this triage,
+it is helpful to publish this metadata together with the release.
+
+#### Publish metadata about the release in an easily discoverable location.
+Examples of easily discoverable locations are the Git tag itself,
+an associated release page on GitHub,
+or a dedicated releases page on a website.
+An example of a location that is not easily discoverable
+is an invite-only Discord channel
+where many kinds of announcements are being shared
+in addition to just release announcements.
+
+#### Keep a changelog.
+For us node operators,
+the first thing we wonder when we see a new release is:
+what changed, how does this affect us?
+Ideally, we can find that in a changelog.
+
+Do not mistake Git’s commit log for a changelog.
+The target audience of commit messages
+are the software engineers working on the project.
+The target audience of a changelog are the users of the software (us, node operators).
+Commit messages are typically more detailed and fine-grained
+than the summary of the changes in a changelog.
+While we do read through the Git log when needed,
+we appreciate having a handwritten summary of the changes.
