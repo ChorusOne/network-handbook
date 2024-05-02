@@ -30,4 +30,6 @@ details. To start a local preview server:
 
 ## License
 
-TODO: Pick a license.
+This book is licensed under the [Creative Commons BY-NC-SA 4.0][license] license.
+
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/

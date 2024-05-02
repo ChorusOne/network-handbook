@@ -29,3 +29,13 @@ If the problems we solve sound interesting to you,
 
 [chorus]:  https://chorus.one
 [careers]: https://chorus.one/careers
+
+### Source code
+
+This book is open source,
+licensed under the [Creative Commons BY-NC-SA 4.0][license] license.
+The source files from which this book is generated
+are available on [GitHub][repo].
+
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[repo]:    https://github.com/ChorusOne/network-handbook
