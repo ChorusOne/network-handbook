@@ -66,10 +66,13 @@ and therefore we cannot allow this.
 When your official build process involves Docker,
 this forces us to reverse-engineer your Dockerfile,
 and if our build process deviates too much from yours,
-it’s more likely to break.
-It is of course fine if you offer official pre-built container images
-for node operators who have less stringent security practices.
+it is more likely to break.
+
+It is of course great if you offer official pre-built container images
+to enable less experienced people to join as a node operators.
 You can achieve that by running your regular build process inside a Dockerfile.
+The Dockerfile should invoke your build process,
+but your build process should not invoke Docker.
 
 #### Don’t fetch untrusted binaries from the Internet as part of your build scripts.
 Aside from security implications,

@@ -29,7 +29,7 @@ and the history is one of the few things that you cannot fix after the fact.
 [transparency]: open-source.md#transparent-history
 
 #### Use comments to clarify non-obvious code.
-Also, while temporarily commenting out pieces of code can be helpful during development,
+Furthermore, while temporarily commenting out pieces of code can be helpful during development,
 code that is commented out should not end up merged into the main branch.
 
 ## Testing
@@ -58,9 +58,11 @@ until it’s suddenly top priority because somebody is attacking your system.
 ## Quality assurance
 
 #### Have a code review process.
-For personal projects, it is expected that developers just write code and push it.
-However, for node software written in a professional setting,
-there should be a process for reviewing that code.
+For personal projects it is normal that developers write code and push it without review.
+For node software written in a professional setting
+with the intent of being adopted by commercial node operators,
+the bar is higher:
+there should be a process for reviewing changes.
 Ideally that process includes a real review,
 and not just a rubber stamp acknowledging that some change was made.
 

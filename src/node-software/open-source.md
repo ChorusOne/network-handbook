@@ -95,7 +95,7 @@ that approach puts node operators between a rock and a hard place:
    we have to bypass protocols that are established for good reasons,
    at the risk of introducing misconfigurations.
  * We build all software from source for reasons described in
-   (TODO: Link releng chapter).
+   [the build process chapter](build-process.md).
    When we are asked to run an untrusted binary blob on our infrastructure,
    we have to weigh the risk of continuing to run the vulnerable version
    against the risk of the untrusted binary being built in a way
