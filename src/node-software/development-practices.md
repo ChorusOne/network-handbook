@@ -28,6 +28,10 @@ and the history is one of the few things that you cannot fix after the fact.
 
 [transparency]: open-source.md#transparent-history
 
+#### Use comments to clarify non-obvious code.
+Also, while temporarily commenting out pieces of code can be helpful during development,
+code that is commented out should not end up merged into the main branch.
+
 ## Testing
 
 Two types of software that are notoriously among the hardest to get right
