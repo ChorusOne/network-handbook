@@ -112,3 +112,23 @@ Sticking to an established process is often better
 than trying to save a few minutes.
 
 [retag]: https://git-scm.com/docs/git-tag#_on_re_tagging
+
+#### When using submodules, use `https` transport urls.
+Git supports two [transfer protocols][git-transfer]: `https` and `ssh`.
+On GitHub, `https` requires no authentication for public repositories,
+but `ssh` by design always requires authentication,
+even for public repositories.
+
+When you as a developer clone a public repository using an `ssh://`-url,
+you likely have your SSH key loaded and authentication to GitHub is transparent to you.
+However, when automation such as a CI server tries to clone from an `ssh://`-url,
+it typically does not have the appropriate SSH keys loaded,
+and so it will fail to clone,
+even if the repository is public and can be cloned from an `https://`-url.
+
+This matters especially for submodules,
+because with `git clone --recurse-submodules`,
+we do not get to choose which transport to use.
+The urls are determined by the `.gitmodules` file in the top-level repository.
+
+[git-transfer]: https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols
