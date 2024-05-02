@@ -71,12 +71,14 @@ It is of course fine if you offer official pre-built container images
 for node operators who have less stringent security practices.
 You can achieve that by running your regular build process inside a Dockerfile.
 
-#### Don’t fetch binaries from the Internet as part of your build scripts.
+#### Don’t fetch untrusted binaries from the Internet as part of your build scripts.
 Aside from security implications,
 flaky third-party webservers are a common source of failing builds.
 These types of flakes are rare enough
 that it’s difficult to get the time-outs and retries right,
 but at scale are common enough to be a nuisance.
+Language package managers and system package managers
+that download from official registries are of course fine.
 
 ## Golang recommendations
 
