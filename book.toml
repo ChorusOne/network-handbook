@@ -7,3 +7,6 @@ src = "src"
 
 [output.html]
 additional-css = ["src/custom.css"]
+git-repository-url = "https://github.com/ChorusOne/network-handbook"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/ChorusOne/network-handbook/edit/master/{path}"
