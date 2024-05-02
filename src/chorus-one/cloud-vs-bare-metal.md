@@ -44,7 +44,7 @@ running in the cloud also means sacrificing performance and control:
    For many web applications that are IO-bound anyway,
    single-core performance is not a decisive factor and cloud vCPUs are more than adequate,
    but for compute-intensive workloads,
-   being able to pick the optimal CPU model is a clear advantage.
+   having access to the fastest CPU on the market is a clear advantage.
  * **Networked storage is reliable, but at a latency and throughput cost.**
    The fastest durable storage technology available today
    are SSDs that connect directly to the CPU’s PCI bus: NVMe drives.
