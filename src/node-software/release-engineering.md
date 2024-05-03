@@ -201,3 +201,45 @@ In most cases we do not run pre-release versions,
 so we exclude tags that match certain patterns from our update notifications.
 If you keep changing the naming scheme,
 then we have to keep adjusting our patterns.
+
+## Timing
+
+A big part of solid release engineering is _when_ to release a new version.
+As a professional node operator we employ people,
+and most of those people don’t work on weekends or holidays.
+The majority of network-wide outages happen because of an update,
+so you want the update to land
+at a time when as many people as possible can act quickly.
+While [we do have a 24/7 oncall rotation](../chorus-one/oncall.md),
+their job is to deal with emergencies,
+not routine updates.
+
+#### Publish a release at least one week before an update deadline. {.p2}
+When an update is mandatory and has a hard deadline
+(for example, for a hard fork),
+ensure that the release is ready with ample time before the deadline.
+We plan most of our work on a weekly schedule.
+When changes are known ahead of time it’s easy to fit them in and everything runs smoothly.
+When changes come up last-minute,
+it ends up being disruptive,
+and deviating from standard procedures is what causes outages.
+
+#### Do not release on Fridays. {.p2}
+At least, do not ask people to update on Fridays.
+Most outages happen because of a change,
+and while we trust that you extensively test releases
+before recommending them for mainnet,
+bugs do slip in.
+Our 24/7 oncall team is ready to respond in case a release contains a bug,
+but they still prefer a relaxing uninterrupted weekend over dealing with an outage.
+
+#### Do not release just before a holiday. {.p2}
+While we have an oncall team to deal with emergencies,
+we are not operating at full capacity during holidays.
+In case of a network-wide outage,
+it will be much harder for you reach people to coordinate an update or restart,
+especially when a fraction of node operators are not professionals with a 24/7 oncall team.
+
+Most of our engineers are based in Europe,
+we observe more holidays than what is common in the US.
+It is common for people in Europe to be off in the weeks of Christmas and New Year.
