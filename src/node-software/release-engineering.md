@@ -179,3 +179,25 @@ Commit messages are typically more detailed and fine-grained
 than the summary of the changes in a changelog.
 While we do read through the Git log when needed,
 we appreciate having a handwritten summary of the changes.
+
+## Versioning scheme
+
+We don’t have strong opinions on how you version your software,
+but please pick one versioning scheme and stick with it.
+
+#### Use the same number of parts in every version number. {.p2}
+
+For example, have `v1.0.0` and `v1.0.1` in the same repository,
+but do not put `v1.0` and `v1.0.1` in the same repository.
+_Definitely_ do not put `v1.0` and `v1.0.0` in the same repository,
+as it is confusing which one is supposed to be used.
+Adding a suffix for release candidates is fine,
+e.g. `v1.5.7-rc.3` and `v1.5.7` can happily coexist.
+
+#### Use consistent suffixes to mark pre-release versions. {.p2}
+
+We have build automation that watches new tags.
+In most cases we do not run pre-release versions,
+so we exclude tags that match certain patterns from our update notifications.
+If you keep changing the naming scheme,
+then we have to keep adjusting our patterns.
