@@ -45,6 +45,7 @@ running in the cloud also means sacrificing performance and control:
    single-core performance is not a decisive factor and cloud vCPUs are more than adequate,
    but for compute-intensive workloads,
    having access to the fastest CPU on the market is a clear advantage.
+
  * **Networked storage is reliable, but at a latency and throughput cost.**
    The fastest durable storage technology available today
    are SSDs that connect directly to the CPU’s PCI bus: NVMe drives.
@@ -55,9 +56,11 @@ running in the cloud also means sacrificing performance and control:
    Again, for most web applications this is hardly relevant,
    but for storage-intensive applications such as databases and blockchains,
    this can mean an order of magnitude performance difference.
+
  * **There is overhead to CPU virtualization.**
    Fortunately this overhead is small nowadays,
    but for performance-oriented networks, every little bit helps.
+
  * **Public clouds do not support custom hardware.**
    For some blockchains, we work with hardware security modules.
    These are small USB devices that we prepare,
