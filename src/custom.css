@@ -2,3 +2,43 @@
 sup {
   line-height: 0;
 }
+
+.p0 a::before,
+.p1 a::before,
+.p2 a::before,
+.p3 a::before {
+  background-color: color-mix(
+    in lch,
+    var(--accent-color) 30%,
+    transparent
+  );
+  color: color-mix(
+    in lch,
+    var(--accent-color) 90%,
+    #000
+  );
+  border-radius: 0.5ex;
+  padding-left: 0.5ex;
+  padding-right: 0.5ex;
+  margin-right: 1ex;
+}
+
+.p0 a::before {
+  content: 'P0';
+  --accent-color: #ff2a00;
+}
+
+.p1 a::before {
+  content: 'P1';
+  --accent-color: #fd9300;
+}
+
+.p2 a::before {
+  content: 'P2';
+  --accent-color: #ffd500;
+}
+
+.p3 a::before {
+  content: 'P3';
+  --accent-color: #678e00;
+}
