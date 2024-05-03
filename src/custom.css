@@ -35,7 +35,7 @@ sup {
 
 .p2 a::before {
   content: 'P2';
-  --accent-color: #ffd500;
+  --accent-color: #ffc900;
 }
 
 .p3 a::before {

@@ -19,14 +19,14 @@ So far we’ve never encountered a project that we considered operating
 that was not using Git,
 so this guide is focused solely on Git.
 
-#### Publish the source code in a public Git repository.
+#### Publish the source code in a public Git repository. {.p1}
 See also the [open source chapter](open-source.md).
 As for Git specifically,
 our build automation has good support for Git,
 a publicly hosted repository (e.g. on GitHub or Codeberg)
 is easy for us to integrate.
 
-#### Mark releases with a Git tag.
+#### Mark releases with a Git tag. {.p1}
 
 Every Git commit points to a _tree_,
 a particular revision of your source code that we could build and deploy.
@@ -53,7 +53,7 @@ they are easy for us to integrate.
 Therefore, please tag **all** commits that you expect us to run,
 even if they are only for a testnet.
 
-#### Use _annotated_ Git tags.
+#### Use _annotated_ Git tags. {.p1}
 
 There are two kinds of tag in Git:
 _lightweight_ tags,
@@ -65,7 +65,7 @@ therefore always use annotated tags.
 
 [annotated]: https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---annotate
 
-#### Do not — never ever — re-tag.
+#### Do not — never ever — re-tag. {.p1}
 
 Re-tagging
 — deleting a tag, and then creating a new, _different_ tag with the same name —
@@ -113,7 +113,7 @@ than trying to save a few minutes.
 
 [retag]: https://git-scm.com/docs/git-tag#_on_re_tagging
 
-#### When using submodules, use `https` transport urls.
+#### When using submodules, use `https` transport urls. {.p1}
 Git supports two [transfer protocols][git-transfer]: `https` and `ssh`.
 On GitHub, `https` requires no authentication for public repositories,
 but `ssh` by design always requires authentication,
@@ -156,7 +156,7 @@ we triage it:
 To be able to do this triage,
 it is helpful to publish this metadata together with the release.
 
-#### Publish metadata about the release in an easily discoverable location.
+#### Publish metadata about the release in an easily discoverable location. {.p2}
 Examples of easily discoverable locations are the Git tag itself,
 an associated release page on GitHub,
 or a dedicated releases page on a website.
@@ -165,7 +165,7 @@ is an invite-only Discord channel
 where many kinds of announcements are being shared
 in addition to just release announcements.
 
-#### Keep a changelog.
+#### Keep a changelog. {.p3}
 For us node operators,
 the first thing we wonder when we see a new release is:
 what changed, how does this affect us?

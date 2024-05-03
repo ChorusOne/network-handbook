@@ -50,7 +50,7 @@ and impossible to secure due to an ecosystem where depending on tens of thousand
 
 ## General recommendations
 
-#### Ensure your software can be built on a stock Ubuntu LTS installation.
+#### Ensure your software can be built on a stock Ubuntu LTS installation. {.p1}
 
 Ubuntu Linux is the common denominator that is supported by almost any software project.
 [We run Ubuntu LTS][c1-ubuntu] on our servers to minimize surprises specific to our setup,
@@ -59,7 +59,7 @@ we also prefer to use it as the base image for applications deployed in containe
 
 [c1-ubuntu]: /chorus-one/the-hardware-layer.html#operating-system
 
-#### Don’t require Docker as part of your build process.
+#### Don’t require Docker as part of your build process. {.p1}
 While Docker is convenient for less experienced users,
 depending on external images has the same security implications as downloading untrusted binary blobs,
 and therefore we cannot allow this.
@@ -74,7 +74,7 @@ You can achieve that by running your regular build process inside a Dockerfile.
 The Dockerfile should invoke your build process,
 but your build process should not invoke Docker.
 
-#### Don’t fetch untrusted binaries from the Internet as part of your build scripts.
+#### Don’t fetch untrusted binaries from the Internet as part of your build scripts. {.p1}
 Aside from security implications,
 flaky third-party webservers are a common source of failing builds.
 These types of flakes are rare enough
@@ -90,7 +90,7 @@ TODO.
 
 ## Rust recommendations
 
-#### Include a `rust-toolchain.toml` file in your repository.
+#### Include a `rust-toolchain.toml` file in your repository. {.p1}
 The official standard way to encode which Rust toolchain to use,
 in a machine-readable form that is automatically picked up by `rustup`,
 is to specify the version in a [`rust-toolchain.toml`][rust-toolchain] file.
