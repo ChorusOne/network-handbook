@@ -1,5 +1,10 @@
 # The Network Handbook
 
+> **Note**: This book is a work in progress.
+> Some chapters are still missing,
+> some are incomplete.
+> You are reading a draft version.
+
 Welcome to [Chorus One][chorus]’s _Network Handbook_.
 Chorus One is one of the leading node operators for decentralized networks.
 We operate validators for proof-of-stake blockchains
