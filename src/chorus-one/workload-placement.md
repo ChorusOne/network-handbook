@@ -13,7 +13,7 @@ place constraints on where and how we can run a piece of software:
 * We want to be close enough to peers to get low latency and minimize packet loss,
   though not so close that we risk creating a centralization vector for the network.
   We prefer to avoid data centers that already host too many other nodes,
-  though there’s a stability/centralization trade-off here.
+  though there’s a stability/decentralization trade-off here.
 * For a redundant pair
   (two instances of the node software running on different machines),
   we want the two nodes to not be in the same data center,
