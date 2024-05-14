@@ -32,6 +32,6 @@ In addition, for some high-performance blockchains we tune kernel parameters for
 
 Because of these reasons,
 we allocate our blockchain workloads manually to machines.
-We do use Kubernetes for some non-blockchain workloads that require virtually zero resources
-and just need to run somewhere, but for blockchain workloads,
+We do use Kubernetes for some internal applications and stateless workloads
+that just need to run _somewhere_, but for blockchain workloads,
 we want to have full control over workload placement.

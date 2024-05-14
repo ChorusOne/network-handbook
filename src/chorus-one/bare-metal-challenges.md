@@ -34,8 +34,12 @@ This takes minutes at best, sometimes hours.
 The amount of storage we can put in a single machine is limited.
 While there exist dedicated storage servers that can hold petabytes worth of data,
 that is not the kind of fast NVMe storage that blockchains demand nowadays.
-8 TB of NVMe storage per server is pretty standard,
-more than this starts to limit our options on other axes.
+8 TB of NVMe storage per server is pretty standard.
+More than this is possible,
+but might not be available in every location
+or with every CPU model or network card,
+so this may limit our ability to provide geographic redundancy
+or best-in-class hardware.
 
 * **Commitment periods.**
 A high-end server is a serious investment for our vendors,

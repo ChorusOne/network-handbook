@@ -51,8 +51,8 @@ running in the cloud also means sacrificing performance and control:
    are SSDs that connect directly to the CPU’s PCI bus: NVMe drives.
    Virtualized network storage, although more reliable,
    will never be able to match this in performance.
-   Read throughput in clouds tops out around a GB/s,
-   while an array of local NVMe drives can reach 20× that.
+   Read throughput in clouds [tops out around a GB/s][gce-disk],
+   while an array of local NVMe drives [can reach 20× that][intel-d7].
    Again, for most web applications this is hardly relevant,
    but for storage-intensive applications such as databases and blockchains,
    this can mean an order of magnitude performance difference.
@@ -74,3 +74,6 @@ mean that cloud is either not cost-effective,
 or doesn’t offer adequate performance to meet the demands of performance-oriented networks.
 At Chorus One we use cloud where it makes sense,
 but the vast majority of our workload runs on bare metal.
+
+[gce-disk]: https://cloud.google.com/compute/docs/disks/performance
+[intel-d7]: https://www.anandtech.com/show/15860/intel-announces-d7-series-pcie-40-enterprise-ssds

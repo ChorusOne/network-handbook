@@ -18,10 +18,10 @@ there’s about a ⅔ probability that at least one disk fails in a given month.
 The solution to this is redundancy.
 
 There are a few levels at which we can implement redundancy,
-but we choose to do it at the node software level,
+but we choose to do it primarily at the node software level,
 by running multiple instances of the same software on different machines.
 This is the most general, and a good fit for blockchain software.
-Let’s look at why other levels are inadequate.
+Let’s compare some alternatives.
 
 * **RAID-style redundant storage.**
 While redundancy at the block device level ensures
@@ -33,6 +33,15 @@ natural disaster, or software bugs that cause corruption.
 When there is a single source of truth for the data,
 RAID may be the only option.
 But for blockchains, we have better options.
+
+* **Other forms of block device and file system-level replication.**
+While redundancy at the block device or filesystem layer is a possible way to add redundancy,
+blockchains already have a built-in redundancy mechanism.
+By their nature, every node in a blockchain network stores the same data.[^erasure-coding]
+Furthermore, the node software already has a replication protocol built in:
+the regular p2p data distribution code.
+This means we do not need to have replication at the block device or file system layer:
+we can simply run multiple instances of the node software.
  
 * **Redundant network storage.**
 We could run our own multi-node storage cluster that can tolerate single nodes going offline,
@@ -43,16 +52,9 @@ the nodes must also be geographically close
 (preferably at the same site, probably not in different cities).
 This means it doesn’t protect against natural disasters.
 
-* **Block device-level replication is not needed.**
-By their nature, every node in a blockchain network stores the same data.[^erasure-coding]
-Furthermore, the node software already has a replication protocol built in:
-the regular p2p data distribution code.
-This means we do not need to have replication at the block device or file system layer:
-we can simply run multiple instances of the node software.
-
-For the non-public data that we cannot afford to lose
-(in particular, cryptographic keys)
-we do use redundant storage clusters such as Hashicorp Vault,
+We do use redundant storage for data that is inconvenient to lose,
+and for non-public data that we cannot afford to lose (in particular, cryptographic keys)
+we do work with redundant storage clusters such as Hashicorp Vault,
 but this data is tiny in comparison to the blockchain data we handle,
 and IO performance is not a concern.
 
