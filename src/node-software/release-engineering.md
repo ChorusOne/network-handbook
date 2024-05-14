@@ -237,7 +237,7 @@ but they still prefer a relaxing uninterrupted weekend over dealing with an outa
 While we have an oncall team to deal with emergencies,
 we are not operating at full capacity during holidays.
 In case of a network-wide outage,
-it will be much harder for you reach people to coordinate an update or restart,
+it will be much harder for you to reach people to coordinate an update or restart,
 especially when a fraction of node operators are not professionals with a 24/7 oncall team.
 
 Most of our engineers are based in Europe,
