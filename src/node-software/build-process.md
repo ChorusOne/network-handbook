@@ -85,8 +85,11 @@ that download from official registries are of course fine.
 
 ## Golang recommendations
 
+> This section is a work in progress.
+
+<!-- TODO: Fill out Go build advice.
 #### Include a `go.mod` file that specifies which version of the Go toolchain your project should be built with.
-TODO.
+-->
 
 ## Rust recommendations
 

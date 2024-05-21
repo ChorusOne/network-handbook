@@ -100,7 +100,6 @@ and if needed we can provide you with a way to reach
 [our 24/7 oncall team](../chorus-one/oncall.md)
 who are able to get back to you within minutes
 (for _severe emergencies only_). 
-TODO: Link to releng chapter.
 
 These two options can be combined for maximum impact.
 

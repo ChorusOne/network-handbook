@@ -78,11 +78,10 @@ Any checks that are not mechanically enforced will be violated sooner or later.
 
 These are nice-to-haves early on in the project,
 but start to become important when mainnet attracts significant value.
-TODO: Should this go in a different chapter?
 
 #### Set up a bug bounty program. {.p2}
 You want security researchers to have a viable honest alternative
-to selling an exploit on the black market.
+to selling or exploiting a vulnerability.
 
 #### Set up a responsible disclosure policy. {.p2}
 Clarify to security researchers how they can report discoveries to you,
