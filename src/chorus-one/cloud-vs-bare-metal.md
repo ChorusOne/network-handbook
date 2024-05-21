@@ -1,6 +1,11 @@
 # The cloud computing vs. bare metal trade-off
 
-TODO: Intro should probably go here, not on the top level.
+At Chorus One we run the majority of our workloads
+on bare metal machines across various different providers.
+In an era where public clouds dominate public mindshare this might be surprising,
+but it turns out that blockchain workloads have special requirements
+that make bare metal the more suitable option for us.
+Let’s dive in.
 
 Two undeniable strengths of cloud computing are reliability and flexibility.
 You can spin up a virtual machine in seconds,

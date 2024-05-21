@@ -1,8 +1,19 @@
 # How Chorus One Operates Nodes
 
-At Chorus One we run the majority of our workloads
-on bare metal machines across various different providers.
-In an era where public clouds dominate public mindshare this might be surprising,
-but it turns out that blockchain workloads have special requirements
-that make bare metal the more suitable option for us.
-Let’s dive in.
+At Chorus One we operate nodes reliably for more than 50 networks.
+Over time we’ve noticed patterns across those networks,
+and we learned what approaches work well.
+Years of incident response have forced us
+to build our infrastructure in a way that is resilient.
+In this section of the book,
+we describe the infrastructure that we have converged on.
+
+In short,
+we run our workloads primarily on bare metal machines
+in data centers operated by multiple different providers,
+in many different countries.
+This gives us maximum performance and resiliency at a cost-effective price.
+This approach is not without challenges:
+engineering is about making trade-offs.
+In each of the following chapters we highlight one aspect of our setup,
+and why it works the way it does.
