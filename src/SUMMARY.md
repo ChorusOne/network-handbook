@@ -2,7 +2,6 @@
 
 [Introduction](introduction.md)
 
-
  - [How Chorus One Operates Nodes](chorus-one/intro.md)
    - [The hardware layer](chorus-one/the-hardware-layer.md)
    - [The cloud computing vs. bare metal trade-off](chorus-one/cloud-vs-bare-metal.md)
@@ -17,8 +16,8 @@
    - [Software development best practices](node-software/development-practices.md)
    - [Build process](node-software/build-process.md)
    - [Release engineering](node-software/release-engineering.md)
-   - [Communication channels](node-software/communication-channels.md)
-   - [Runtime environment](node-software/runtime-environment.md)
-   - [Hardware requirements](node-software/hardware-requirements.md)
-   - [Monitoring](node-software/monitoring.md)
-   - [Operator interface](node-software/operator-interface.md)
+   - [Communication channels]() <!-- node-software/communication-channels.md -->
+   - [Runtime environment]() <!-- node-software/runtime-environment.md -->
+   - [Hardware requirements]() <!-- node-software/hardware-requirements.md -->
+   - [Monitoring]() <!-- (node-software/monitoring.md) -->
+   - [Operator interface]() <!-- (node-software/operator-interface.md) -->
