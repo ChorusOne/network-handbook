@@ -1,0 +1,22 @@
+name: Check
+
+"on":
+  workflow_dispatch: {}
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          curl -sSL "https://github.com/rust-lang/mdBook/releases/download/$(cat mdbook-version)/mdbook-$(cat mdbook-version)-x86_64-unknown-linux-gnu.tar.gz" | tar -xz
+
+      - name: Build and test the book
+        run: |
+          ./mdbook build
+          ./mdbook test

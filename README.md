@@ -15,6 +15,8 @@ details. To start a local preview server:
 
     mdbook serve
 
+The exact version of mdBook to use is listed in the `mdbook-version` file.
+
 [mdBook]: https://rust-lang.github.io/mdBook/index.html
 
 ## Contributing
