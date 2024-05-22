@@ -30,6 +30,9 @@ jobs:
           ./mdbook build
           ./mdbook test
 
+          # Delete large artifacts from the output. It's 2024, everybody supports woff2.
+          rm -f book/FontAwesome/fonts/fontawesome{-webfont.svg,-webfont.ttf,-webfont.eot,.ttf}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
