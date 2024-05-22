@@ -1,6 +1,6 @@
 # Node Software Guide
 
-With more than half a decade of experience operating more than 50 blockchain networks,
+With more than half a decade of experience operating more than 70 blockchain networks,
 we’ve noticed some patterns that make a network easy to operate reliably,
 and also some pitfalls that less mature networks might not be aware of.
 In this section we describe what from our point of view is the ideal way

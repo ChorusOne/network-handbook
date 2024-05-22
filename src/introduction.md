@@ -9,7 +9,7 @@ Welcome to [Chorus One][chorus]’s _Network Handbook_.
 Chorus One is one of the leading node operators for decentralized networks.
 We operate validators for proof-of-stake blockchains
 and infrastructure for adjacent projects.
-We have many years of experience operating more than 50 networks,
+We have many years of experience operating more than 70 networks,
 and through that we learned a lot
 about how we can operate such networks securely and reliably.
 

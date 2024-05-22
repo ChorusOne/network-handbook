@@ -1,6 +1,6 @@
 # How Chorus One Operates Nodes
 
-At Chorus One we operate nodes reliably for more than 50 networks.
+At Chorus One we operate nodes reliably for more than 70 networks.
 Over time we’ve noticed patterns across those networks,
 and we learned what approaches work well.
 Years of incident response have forced us
