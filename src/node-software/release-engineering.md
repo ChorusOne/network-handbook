@@ -19,14 +19,14 @@ So far we’ve never encountered a project that we considered operating
 that was not using Git,
 so this guide is focused solely on Git.
 
-#### Publish the source code in a public Git repository. {.p1}
+#### Publish the source code in a public Git repository. {.p1 #public-git-repo}
 See also the [open source chapter](open-source.md).
 As for Git specifically,
 our build automation has good support for Git,
 a publicly hosted repository (e.g. on GitHub or Codeberg)
 is easy for us to integrate.
 
-#### Mark releases with a Git tag. {.p1}
+#### Mark releases with a Git tag. {.p1 #use-git-tags}
 
 Every Git commit points to a _tree_,
 a particular revision of your source code that we could build and deploy.
@@ -53,7 +53,7 @@ they are easy for us to integrate.
 Therefore, please tag **all** commits that you expect us to run,
 even if they are only for a testnet.
 
-#### Use _annotated_ Git tags. {.p1}
+#### Use _annotated_ Git tags. {.p1 #use-annotated-tags}
 
 There are two kinds of tag in Git:
 _lightweight_ tags,
@@ -65,7 +65,7 @@ therefore always use annotated tags.
 
 [annotated]: https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---annotate
 
-#### Do not — never ever — re-tag. {.p1}
+#### Do not — never ever — re-tag. {.p1 #no-retagging}
 
 Re-tagging
 — deleting a tag, and then creating a new, _different_ tag with the same name —
@@ -113,7 +113,7 @@ than trying to save a few minutes.
 
 [retag]: https://git-scm.com/docs/git-tag#_on_re_tagging
 
-#### When using submodules, use `https` transport urls. {.p1}
+#### When using submodules, use `https` transport urls. {.p1 #submodule-use-https-transport}
 Git supports two [transfer protocols][git-transfer]: `https` and `ssh`.
 On GitHub, `https` requires no authentication for public repositories,
 but `ssh` by design always requires authentication,
@@ -156,7 +156,7 @@ we triage it:
 To be able to do this triage,
 it is helpful to publish this metadata together with the release.
 
-#### Publish metadata about the release in an easily discoverable location. {.p2}
+#### Publish metadata about the release in an easily discoverable location. {.p2 #publish-release-metadata}
 Examples of easily discoverable locations are the Git tag itself,
 an associated release page on GitHub,
 or a dedicated releases page on a website.
@@ -165,7 +165,7 @@ is an invite-only Discord channel
 where many kinds of announcements are being shared
 in addition to just release announcements.
 
-#### Keep a changelog. {.p3}
+#### Keep a changelog. {.p3 #keep-a-changelog}
 For us node operators,
 the first thing we wonder when we see a new release is:
 what changed, how does this affect us?
@@ -185,7 +185,7 @@ we appreciate having a handwritten summary of the changes.
 We don’t have strong opinions on how you version your software,
 but please pick one versioning scheme and stick with it.
 
-#### Use the same number of parts in every version number. {.p2}
+#### Use the same number of parts in every version number. {.p2 #version-number-parts}
 
 For example, have `v1.0.0` and `v1.0.1` in the same repository,
 but do not put `v1.0` and `v1.0.1` in the same repository.
@@ -194,7 +194,7 @@ as it is confusing which one is supposed to be used.
 Adding a suffix for release candidates is fine,
 e.g. `v1.5.7-rc.3` and `v1.5.7` can happily coexist.
 
-#### Use consistent suffixes to mark pre-release versions. {.p2}
+#### Use consistent suffixes to mark pre-release versions. {.p2 #consistent-suffixes}
 
 We have build automation that watches new tags.
 In most cases we do not run pre-release versions,
@@ -214,7 +214,7 @@ While [we do have a 24/7 oncall rotation](../chorus-one/oncall.md),
 their job is to deal with emergencies,
 not routine updates.
 
-#### Publish a release at least one week before an update deadline. {.p2}
+#### Publish a release at least one week before an update deadline. {.p2 #publish-headroom}
 When an update is mandatory and has a hard deadline
 (for example, for a hard fork),
 ensure that the release is ready with ample time before the deadline.
@@ -224,7 +224,7 @@ When changes come up last-minute,
 it ends up being disruptive,
 and deviating from standard procedures is what causes outages.
 
-#### Do not release on Fridays. {.p2}
+#### Do not release on Fridays. {.p2 #no-release-friday}
 At least, do not ask people to update on Fridays.
 Most outages happen because of a change,
 and while we trust that you extensively test releases
@@ -233,7 +233,7 @@ bugs do slip in.
 Our 24/7 oncall team is ready to respond in case a release contains a bug,
 but they still prefer a relaxing uninterrupted weekend over dealing with an outage.
 
-#### Do not release just before a holiday. {.p2}
+#### Do not release just before a holiday. {.p2 #no-release-holiday}
 While we have an oncall team to deal with emergencies,
 we are not operating at full capacity during holidays.
 In case of a network-wide outage,

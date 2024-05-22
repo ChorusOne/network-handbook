@@ -17,7 +17,7 @@ is publicly released under an [OSI-approved license][osi].
 
 [osi]: https://opensource.org/
 
-#### Release the project under an open source license. {.p1}
+#### Release the project under an open source license. {.p1 #publish-open-source}
 Ensure that source code for the project is publicly available,
 released under an [OSI-approved license][osi].
 See below for how to handle [stealth launches](#stealth-launches).
@@ -55,14 +55,14 @@ to understand why a piece of code works in a certain way.
 [^smart-contract]: One notable exception to this are smart contracts,
 which for many reasons have to be kept deliberately small.
 
-#### Be transparent about the provenance of your source code. {.p0}
+#### Be transparent about the provenance of your source code. {.p0 #provenance-transparency}
 Even when a project is developed in stealth at first,
 when the time comes to go public,
 do not merely publish a source code dump
 which destroys valuable metadata.
 Publish the full revision control history.
 
-#### Build in the open. {.p3}
+#### Build in the open. {.p3 #build-in-the-open}
 Building behind closed doors and periodically publishing new versions
 is not technically incompatible with open source.
 However,
@@ -132,7 +132,7 @@ who have less stringent requirements around what they run on their infrastructur
 This solution can be complementary,
 but it’s not appropriate as the _only_ solution.
 
-#### Ensure that node operators can build security fixes from source. {.p2}
+#### Ensure that node operators can build security fixes from source. {.p2 #security-fixes-source}
 As described in the [build process chapter](build-process.md),
 we build all software that we operate from source.
 Making an exception for security fixes is a difficult trade-off that we do not make lightly.

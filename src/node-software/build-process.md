@@ -93,7 +93,7 @@ that download from official registries are of course fine.
 
 ## Rust recommendations
 
-#### Include a `rust-toolchain.toml` file in your repository. {.p1 #rust-toolchain}
+#### Include a `rust-toolchain.toml` file in your repository. {.p1 #use-rust-toolchain}
 The official standard way to encode which Rust toolchain to use,
 in a machine-readable form that is automatically picked up by `rustup`,
 is to specify the version in a [`rust-toolchain.toml`][rust-toolchain] file.
