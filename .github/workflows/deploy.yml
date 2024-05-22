@@ -1,0 +1,40 @@
+name: Deploy
+
+"on":
+  workflow_dispatch: {}
+  push:
+    branches: ["master"]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    # Ask for a token with the right permissions to publish. It would be slightly
+    # safer to split into two jobs, so the untrusted mdBook binary does not have
+    # access to the token, but the worst you can do is deface the webpage which
+    # a malicious mdBook could do anyway, so we keep the workflow simple.
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          curl -sSL "https://github.com/rust-lang/mdBook/releases/download/$(cat mdbook-version)/mdbook-$(cat mdbook-version)-x86_64-unknown-linux-gnu.tar.gz" | tar -xz
+
+      - name: Build and test the book
+        run: |
+          ./mdbook build
+          ./mdbook test
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: "book"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5
