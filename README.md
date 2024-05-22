@@ -27,8 +27,13 @@ The exact version of mdBook to use is listed in the `mdbook-version` file.
    keep it under 80 columns if possible, but break at a logical point, don't fill
    up the line. (If we would fill up the line, a small change can cause the
    entire paragraph to re-flow, which pollutes the diff.)
- * In a list of best practices, prefer level-4 headings (`####`) per item over
-   using an enumeration. This facilitates linking to individual recommendations.
+ * For listing best practices, use a level-4 heading (`####`), so that we have
+   an anchor to link to. Apply one of the p0–p3 classes to indicate priority
+   by adding `{.p0}` at the end of the heading. Use a custom anchor to ensure
+   that links remain stable even if we rephrase the advice. See also [heading
+   attributes][heading-attributes] in mdBook.
+
+[heading-attributes]: https://rust-lang.github.io/mdBook/format/markdown.html#heading-attributes
 
 ## License
 
