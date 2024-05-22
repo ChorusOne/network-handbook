@@ -196,6 +196,9 @@ e.g. `v1.5.7-rc.3` and `v1.5.7` can happily coexist.
 
 #### Use consistent suffixes to mark pre-release versions. {.p2 #consistent-suffixes}
 
+For example, publish `v1.2.0-beta.1` and later `v1.7.0-beta.1`,
+but do not switch to `v1.7.0b1` later on.
+
 We have build automation that watches new tags.
 In most cases we do not run pre-release versions,
 so we exclude tags that match certain patterns from our update notifications.
