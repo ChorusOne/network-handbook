@@ -19,5 +19,5 @@
    - [Communication channels]() <!-- node-software/communication-channels.md -->
    - [Runtime environment]() <!-- node-software/runtime-environment.md -->
    - [Hardware requirements]() <!-- node-software/hardware-requirements.md -->
-   - [Monitoring]() <!-- (node-software/monitoring.md) -->
+   - [Monitoring](node-software/monitoring.md)
    - [Operator interface]() <!-- (node-software/operator-interface.md) -->
