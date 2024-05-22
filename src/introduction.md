@@ -41,6 +41,7 @@ This book is open source,
 licensed under the [Creative Commons BY-NC-SA 4.0][license] license.
 The source files from which this book is generated
 are available on [GitHub][repo].
+The official version of this book is hosted at <https://handbook.chorus.one>.
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [repo]:    https://github.com/ChorusOne/network-handbook
