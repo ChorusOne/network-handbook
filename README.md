@@ -21,7 +21,6 @@ The exact version of mdBook to use is listed in the `mdbook-version` file.
 
 ## Contributing
 
- * TODO: Are we open to external contributions?
  * Please put every sentence on its own line, and break long sentences across
    multiple lines. This ensures that diffs are easy to review on GitHub. Try to
    keep it under 80 columns if possible, but break at a logical point, don't fill
@@ -32,6 +31,10 @@ The exact version of mdBook to use is listed in the `mdbook-version` file.
    by adding `{.p0}` at the end of the heading. Use a custom anchor to ensure
    that links remain stable even if we rephrase the advice. See also [heading
    attributes][heading-attributes] in mdBook.
+ * We accept external contributions for small corrections like typo fixes.
+   For larger changes, please open an issue first. While we strive to write a
+   neutral handbook with general best practices, being somewhat opinionated is
+   inevitable; some editorial judgment is needed to keep the book coherent.
 
 [heading-attributes]: https://rust-lang.github.io/mdBook/format/markdown.html#heading-attributes
 
