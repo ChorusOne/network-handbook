@@ -17,12 +17,11 @@ is not part of the book itself. Rebuild with `export_checklist.py`.
 
 ## P1
 
-#### Release engineering
- - [ ] [Publish the source code in a public Git repository.](https://handbook.chorus.one/node-software/release-engineering.html#public-git-repo)
- - [ ] [Mark releases with a Git tag.](https://handbook.chorus.one/node-software/release-engineering.html#use-git-tags)
- - [ ] [Use _annotated_ Git tags.](https://handbook.chorus.one/node-software/release-engineering.html#use-annotated-tags)
- - [ ] [Do not — never ever — re-tag.](https://handbook.chorus.one/node-software/release-engineering.html#no-retagging)
- - [ ] [When using submodules, use `https` transport urls.](https://handbook.chorus.one/node-software/release-engineering.html#submodule-use-https-transport)
+#### Build process
+ - [ ] [Ensure your software can be built on a stock Ubuntu LTS installation.](https://handbook.chorus.one/node-software/build-process.html#builds-on-ubuntu)
+ - [ ] [Don’t require Docker as part of your build process.](https://handbook.chorus.one/node-software/build-process.html#no-docker)
+ - [ ] [Don’t fetch untrusted binaries from the Internet as part of your build scripts.](https://handbook.chorus.one/node-software/build-process.html#no-fetch-untrusted-binaries)
+ - [ ] [Include a `rust-toolchain.toml` file in your repository.](https://handbook.chorus.one/node-software/build-process.html#use-rust-toolchain)
 
 #### Software development best practices
  - [ ] [Write automated tests that are included in the repository.](https://handbook.chorus.one/node-software/development-practices.html#automated-tests)
@@ -30,20 +29,32 @@ is not part of the book itself. Rebuild with `export_checklist.py`.
  - [ ] [Write clear pull request, merge request, or changelist descriptions.](https://handbook.chorus.one/node-software/development-practices.html#write-clear-pr-descriptions)
  - [ ] [Set up continuous integration.](https://handbook.chorus.one/node-software/development-practices.html#continuous-integration)
 
-#### Open source software
- - [ ] [Release the project under an open source license.](https://handbook.chorus.one/node-software/open-source.html#publish-open-source)
-
 #### Monitoring
  - [ ] [Expose Prometheus metrics.](https://handbook.chorus.one/node-software/monitoring.html#expose-prometheus-metrics)
  - [ ] [Expose metrics privately.](https://handbook.chorus.one/node-software/monitoring.html#expose-metrics-privately)
 
-#### Build process
- - [ ] [Ensure your software can be built on a stock Ubuntu LTS installation.](https://handbook.chorus.one/node-software/build-process.html#builds-on-ubuntu)
- - [ ] [Don’t require Docker as part of your build process.](https://handbook.chorus.one/node-software/build-process.html#no-docker)
- - [ ] [Don’t fetch untrusted binaries from the Internet as part of your build scripts.](https://handbook.chorus.one/node-software/build-process.html#no-fetch-untrusted-binaries)
- - [ ] [Include a `rust-toolchain.toml` file in your repository.](https://handbook.chorus.one/node-software/build-process.html#use-rust-toolchain)
+#### Open source software
+ - [ ] [Release the project under an open source license.](https://handbook.chorus.one/node-software/open-source.html#publish-open-source)
+
+#### Release engineering
+ - [ ] [Publish the source code in a public Git repository.](https://handbook.chorus.one/node-software/release-engineering.html#public-git-repo)
+ - [ ] [Mark releases with a Git tag.](https://handbook.chorus.one/node-software/release-engineering.html#use-git-tags)
+ - [ ] [Use _annotated_ Git tags.](https://handbook.chorus.one/node-software/release-engineering.html#use-annotated-tags)
+ - [ ] [Do not — never ever — re-tag.](https://handbook.chorus.one/node-software/release-engineering.html#no-retagging)
+ - [ ] [When using submodules, use `https` transport urls.](https://handbook.chorus.one/node-software/release-engineering.html#submodule-use-https-transport)
 
 ## P2
+
+#### Software development best practices
+ - [ ] [Write fuzz tests for code that deals with user input (network or user data).](https://handbook.chorus.one/node-software/development-practices.html#fuzz-tests)
+ - [ ] [Set up a bug bounty program.](https://handbook.chorus.one/node-software/development-practices.html#bug-bounty-program)
+ - [ ] [Set up a responsible disclosure policy.](https://handbook.chorus.one/node-software/development-practices.html#responsible-disclosure-policy)
+
+#### Monitoring
+ - [ ] [Ensure telemetry can be disabled.](https://handbook.chorus.one/node-software/monitoring.html#telemetry-can-be-disabled)
+
+#### Open source software
+ - [ ] [Ensure that node operators can build security fixes from source.](https://handbook.chorus.one/node-software/open-source.html#security-fixes-source)
 
 #### Release engineering
  - [ ] [Publish metadata about the release in an easily discoverable location.](https://handbook.chorus.one/node-software/release-engineering.html#publish-release-metadata)
@@ -53,25 +64,14 @@ is not part of the book itself. Rebuild with `export_checklist.py`.
  - [ ] [Do not release on Fridays.](https://handbook.chorus.one/node-software/release-engineering.html#no-release-friday)
  - [ ] [Do not release just before a holiday.](https://handbook.chorus.one/node-software/release-engineering.html#no-release-holiday)
 
-#### Software development best practices
- - [ ] [Write fuzz tests for code that deals with user input (network or user data).](https://handbook.chorus.one/node-software/development-practices.html#fuzz-tests)
- - [ ] [Set up a bug bounty program.](https://handbook.chorus.one/node-software/development-practices.html#bug-bounty-program)
- - [ ] [Set up a responsible disclosure policy.](https://handbook.chorus.one/node-software/development-practices.html#responsible-disclosure-policy)
-
-#### Open source software
- - [ ] [Ensure that node operators can build security fixes from source.](https://handbook.chorus.one/node-software/open-source.html#security-fixes-source)
-
-#### Monitoring
- - [ ] [Ensure telemetry can be disabled.](https://handbook.chorus.one/node-software/monitoring.html#telemetry-can-be-disabled)
-
 ## P3
 
-#### Release engineering
- - [ ] [Keep a changelog.](https://handbook.chorus.one/node-software/release-engineering.html#keep-a-changelog)
+#### Monitoring
+ - [ ] [Respect Prometheus metric and label naming standards.](https://handbook.chorus.one/node-software/monitoring.html#respect-prometheus-standards)
 
 #### Open source software
  - [ ] [Build in the open.](https://handbook.chorus.one/node-software/open-source.html#build-in-the-open)
 
-#### Monitoring
- - [ ] [Respect Prometheus metric and label naming standards.](https://handbook.chorus.one/node-software/monitoring.html#respect-prometheus-standards)
+#### Release engineering
+ - [ ] [Keep a changelog.](https://handbook.chorus.one/node-software/release-engineering.html#keep-a-changelog)
 

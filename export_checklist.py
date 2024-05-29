@@ -73,7 +73,7 @@ def main() -> None:
     by_priority: Dict[int, List[Recommendation]] = defaultdict(lambda: [])
     out_fname = "checklist.md"
 
-    for fname in list_md_files():
+    for fname in sorted(list_md_files()):
         # In the intro we list the priority categories, they are not themselves
         # recommendations.
         if fname == "src/node-software/intro.md":
