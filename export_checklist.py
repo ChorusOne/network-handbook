@@ -4,7 +4,8 @@
 export_checklist.py -- Export all recommendations as Markdown checklist.
 """
 
-from typing import Iterable, NamedTuple, Optional
+from collections import defaultdict
+from typing import Dict, Iterable, List, NamedTuple, Optional
 
 import os
 import sys
@@ -19,7 +20,7 @@ class Recommendation(NamedTuple):
 
     def get_url(self) -> str:
         slug = self.file.removeprefix("src/").removesuffix(".md")
-        return f"https://handbook.chorus.one/{slug}.html#{id}"
+        return f"https://handbook.chorus.one/{slug}.html#{self.id}"
 
 
 def list_md_files() -> Iterable[str]:
@@ -44,8 +45,12 @@ def list_recommendations(fname: str) -> Iterable[Recommendation]:
                     title, meta = title.rsplit("{", maxsplit=1)
                     meta = meta.strip().removesuffix("}")
                     prio_str, id_str = meta.split(" ", maxsplit=1)
-                    assert prio_str.startswith(".p"), "Recommendation line must end in `{.pN #id}`."
-                    assert id_str.startswith("#"), "Recommendation line must end in `{.pN #id}`."
+                    assert prio_str.startswith(
+                        ".p"
+                    ), "Recommendation line must end in `{.pN #id}`."
+                    assert id_str.startswith(
+                        "#"
+                    ), "Recommendation line must end in `{.pN #id}`."
                     assert chapter is not None, "Must have # chapter title before ####."
 
                     yield Recommendation(
@@ -64,6 +69,8 @@ def list_recommendations(fname: str) -> Iterable[Recommendation]:
 
 
 def main() -> None:
+    by_priority: Dict[int, List[Recommendation]] = defaultdict(lambda: [])
+
     for fname in list_md_files():
         if fname == "src/node-software/intro.md":
             # In the intro we list the priority categories, they are not
@@ -71,7 +78,15 @@ def main() -> None:
             continue
 
         for rec in list_recommendations(fname):
-            print(rec)
+            by_priority[rec.priority].append(rec)
+
+    for priority, recommendations in sorted(by_priority.items()):
+        print(f"## P{priority}\n")
+
+        for rec in recommendations:
+            print(f" - [ ] [{rec.title}]({rec.get_url()})")
+
+        print()
 
 
 if __name__ == "__main__":
