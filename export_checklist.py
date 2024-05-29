@@ -81,9 +81,14 @@ def main() -> None:
             by_priority[rec.priority].append(rec)
 
     for priority, recommendations in sorted(by_priority.items()):
-        print(f"## P{priority}\n")
+        print(f"## P{priority}")
 
+        chapter = ""
         for rec in recommendations:
+            if rec.chapter != chapter:
+                print(f"\n#### {rec.chapter}")
+                chapter = rec.chapter
+
             print(f" - [ ] [{rec.title}]({rec.get_url()})")
 
         print()
