@@ -7,6 +7,7 @@ export_checklist.py -- Export all recommendations as Markdown checklist.
 from collections import defaultdict
 from typing import Dict, Iterable, List, NamedTuple, Optional
 
+import textwrap
 import os
 import sys
 
@@ -62,36 +63,52 @@ def list_recommendations(fname: str) -> Iterable[Recommendation]:
                     )
 
                 except Exception as exc:
-                    print(f"Error in {fname} at line {i + 1}:")
-                    print(f"{i + 1} | {line}", end="")
-                    print(f"Error: {exc}")
+                    print(f"Error in {fname} at line {i + 1}:", file=sys.stderr)
+                    print(f"{i + 1} | {line}", end="", file=sys.stderr)
+                    print(f"Error: {exc}", file=sys.stderr)
                     sys.exit(1)
 
 
 def main() -> None:
     by_priority: Dict[int, List[Recommendation]] = defaultdict(lambda: [])
+    out_fname = "checklist.md"
 
     for fname in list_md_files():
+        # In the intro we list the priority categories, they are not themselves
+        # recommendations.
         if fname == "src/node-software/intro.md":
-            # In the intro we list the priority categories, they are not
-            # themselves recommendations.
             continue
 
         for rec in list_recommendations(fname):
             by_priority[rec.priority].append(rec)
 
-    for priority, recommendations in sorted(by_priority.items()):
-        print(f"## P{priority}")
+    with open(out_fname, "w", encoding="utf-8") as f:
+        f.write(textwrap.dedent(
+            """
+            # Checklist
 
-        chapter = ""
-        for rec in recommendations:
-            if rec.chapter != chapter:
-                print(f"\n#### {rec.chapter}")
-                chapter = rec.chapter
+            This checklist summarizes the recommendations in all the chapters.
+            The main purpose of this page is to have a markdown checklist that
+            we can copy into an issue for internal due diligence processes. It
+            is not part of the book itself. Rebuild with `export_checklist.py`.
+            """
+        ).strip())
+        f.write("\n\n")
 
-            print(f" - [ ] [{rec.title}]({rec.get_url()})")
+        for priority, recommendations in sorted(by_priority.items()):
+            f.write(f"## P{priority}\n")
 
-        print()
+            chapter = ""
+            for rec in recommendations:
+                if rec.chapter != chapter:
+                    f.write(f"\n#### {rec.chapter}\n")
+                    chapter = rec.chapter
+
+                f.write(f" - [ ] [{rec.title}]({rec.get_url()})\n")
+
+            f.write("\n")
+
+    print(f"Checklist written to {out_fname}.")
 
 
 if __name__ == "__main__":
