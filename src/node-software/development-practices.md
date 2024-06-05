@@ -29,6 +29,8 @@ and the history is one of the few things that you cannot fix after the fact.
 [transparency]: open-source.md#transparent-history
 
 #### Use comments to clarify non-obvious code. {.p0 #use-comments}
+Any non-trivial project will contain parts that are not obvious.
+Use comments to explain why a piece of code is there.
 Furthermore, while temporarily commenting out pieces of code can be helpful during development,
 code that is commented out should not end up merged into the main branch.
 
