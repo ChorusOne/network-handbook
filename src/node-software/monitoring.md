@@ -117,6 +117,53 @@ on the RPC interface.
 Ideally the application should respond on that endpoint
 even during the startup phase and report startup progress there.
 
+## On-chain metrics
+
+It is essential to have metrics exposed by the node software,
+but this can only give us a _local_ view.
+[We need to have a _global_ view as well.][monitoring-global]
+For example,
+a validator may be performing its duties
+(such as producing blocks, voting, or attestation),
+but end up in a minority network partition
+that causes the majority of the network to view the validator as delinquent.
+
+When information about a validator is stored on-chain,
+there is a single source of truth about whether the validator performed its duties,
+and that fact becomes finalized through consensus.
+For example,
+for networks that have a known leader assigned to every slot,
+whether the block was produced or not is a property of the chain
+that all honest nodes agree on.
+Some networks additionally store heartbeats or consensus votes on-chain.
+
+We need a way to monitor those on-chain events
+to measure our own performance.
+This can be built into the node software
+(so we can run multiple nodes that monitor each other),
+or it can be an external tool that connects to an RPC node
+and exposes Prometheus metrics about on-chain events.
+
+[monitoring-global]: ../chorus-one/monitoring-alerting.md#local-and-global-views
+
+#### Provide a way to monitor on-chain metrics. {.p3 #on-chain-monitoring}
+
+Ideally,
+we would have Prometheus metrics
+about whether a validator identity has been performing its duties,
+exposed from an independent place that is not that validator itself.
+For most networks these exporters are standalone applications,
+but integrating this into the node software can also work.
+
+Good monitoring and observability tools are a public good
+that benefits all validators.
+Observability is a core requirement for us,
+but we realize that it may not be top priority for node software authors.
+We are happy to contribute here,
+and work with you upstream to improve or develop
+open source monitoring solutions
+that benefit the wider ecosystem.
+
 ## Telemetry
 
 We understand that node software authors
