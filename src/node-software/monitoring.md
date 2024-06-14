@@ -43,6 +43,17 @@ but we don’t want to expose confidential information to third parties.
 It should be possible for the http server that serves the `/metrics` endpoint
 to listen on a network interface that is not Internet-exposed.
 
+#### Ensure that metrics are relevant and named appropriately. {.p1 #metrics-are-relevant}
+
+For new projects, of course you only add metrics that measure something relevant.
+For projects that fork existing node software,
+we encountered software in the past that kept exposing metrics that were no longer meaningful,
+or under the name of the original software.
+Similar to how clear but incorrect error messages are worse than vague error messages,
+misleading metrics are more harmful than not having metrics at all.
+“Maybe the metrics are lying to us”
+is far down the list of possible causes when troubleshooting.
+
 #### Respect Prometheus metric and label naming standards. {.p3 #respect-prometheus-standards}
 
 Prometheus [has an official standard for naming metrics and labels][prometheus-naming].
@@ -57,6 +68,54 @@ In particular:
  * Accumulating counters should end in `_total`.
 
 [prometheus-naming]: https://prometheus.io/docs/practices/naming/
+
+#### If you expose system metrics, provide a way to disable them. {.p3 #system-metrics-can-be-disabled}
+
+We already run the [Prometheus node exporter][node-exporter] on our hosts.
+Exposing that same information from the node software unnecessarily bloats `/metrics` responses,
+which puts strain on our bandwidth and storage,
+and collecting the information can make the `/metrics` endpoint slow.
+
+[node-exporter]: https://prometheus.io/docs/guides/node-exporter/
+
+#### Expose the node software version as a metric. {.p3 #version-metric}
+
+For automating rollouts,
+but also for monitoring manual rollouts,
+and observability and troubleshooting in general,
+it is useful for us to have a way of identifying what version is running at runtime.
+When you run one instance this is easy to track externally,
+but when you run a dozen nodes,
+it’s easy to lose track of which versions run where.
+Exposing a version metric
+(with value `1` and the version as a label)
+is one of the most convenient ways to expose version information.
+
+#### Expose the validator identity as a metric. {.p3 #identity-metric}
+
+Similar to having runtime information about the version,
+when managing multiple nodes,
+it is useful to know which identity (address or pubkey) runs where.
+Like the version, a convenient place to expose this is in Prometheus metrics.
+
+<!--
+TODO: It should *also* be part of the RPC,
+cross-reference that after I write the chapter about RPC interface.
+-->
+
+## Health
+
+#### Expose an endpoint for health checks. {.p2 #health-endpoint}
+
+For automating restarts and failover,
+and for loadbalancing across RPC nodes,
+it is useful to have an endpoint where the node software
+reports its own view on whether it is healthy and in sync with the network.
+A convenient place to do this is with a `/health` or `/status` http endpoint
+on the RPC interface.
+
+Ideally the application should respond on that endpoint
+even during the startup phase and report startup progress there.
 
 ## Telemetry
 
