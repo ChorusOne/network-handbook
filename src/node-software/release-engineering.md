@@ -165,6 +165,32 @@ is an invite-only Discord channel
 where many kinds of announcements are being shared
 in addition to just release announcements.
 
+#### Clearly mark breaking changes. {.p2 #mark-breaking-changes}
+When we update to a new version,
+we need to know if any additional action is required from us.
+For example, when command-line flags are renamed or removed,
+or when the schema of a configuration file changes,
+the new node software would be unable to start
+if we don’t update our configuration.
+To minimize downtime,
+we would rather learn about such changes _before_ we perform the update.
+Even when the node is able to start,
+changes in e.g. metric names or RPC API affect us.
+
+Ideally breaking changes are part of [a changelog](#keep-a-changelog),
+clearly highlighted to stand out from ordinary changes.
+If you don’t keep a changelog,
+you can include breaking changes in e.g. a GitHub releases page,
+or in the release announcement itself.
+
+#### Clearly announce deadlines. {.p2 #mark-deadlines}
+When an update has a deadline,
+for example for a hard fork,
+clearly mark the deadline.
+When possible, include both a date/time and block height,
+and a URL for where the update is coordinated.
+Make sure to [publish the release far enough ahead of the deadline](#publish-headroom).
+
 #### Keep a changelog. {.p3 #keep-a-changelog}
 For us node operators,
 the first thing we wonder when we see a new release is:
