@@ -146,5 +146,89 @@ All of them play an essential role in the validation process.
 These machines can be located in different cites,
 and even in different countries.
 
+### Complex example: Ethereum anno 2024
+
+Since Ethereum moved to Proof of Stake in September 2022,
+operating a basic Ethereum validator requires _two_ pieces of node software:
+
+ * An **execution layer client**, such as Geth.
+ * A **consensus layer client**, such as Lighthouse.
+
+These nodes can run on different machines in different geographic locations.
+As of October 2024,
+our execution layer clients and consensus layer clients
+are located in different data centers
+(the consensus layer runs in a public cloud,
+while execution layer clients run on bare metal).
+In one case,
+while these data centers are geographically close,
+they are located in different countries.
+
+The split into an execution layer and consensus layer is far from the only complication.
+As Ethereum matured,
+and MEV (value that the block proposer can extract due to its privileged position) emerged,
+different parties specialized in different parts of the block production pipeline.
+At this point,
+_Proposer-Builder Separation_ (PBS) is commonplace on Ethereum.
+With PBS,
+blocks are not built by the validator node software;
+the role of the validator is reduced to merely _proposing_ a block.
+Constructing the block itself is outsourced to third party _block builders_.
+While these builders are ultimately responsible for building a block,
+their role is more akin to that of an integrator than a true builder:
+block builders receive bundles
+(groups of transactions that together make up the block)
+from _searchers_.
+To top things off,
+the validator node software and block builders
+do not communicate directly with one another:
+this involves yet another intermediary called the _relay_.
+To summarize,
+block production on Ethereum involves
+_searchers_, _block builders_, _relays_ (all external third parties),
+and an _execution client_ and _consensus client_ (both operated by Chorus One).
+All of these generally run on different machines,
+in different locations.
+
+On top of Proposer-Builder Separation,
+_Distributed Validator Technology_
+is a new emerging trend in the Ethereum ecosystem
+that adds a new layer of complexity.
+While Ethereum is a distributed system
+that remains available even when individual validators fail,
+the network penalizes validators that forfeit their duties,
+so from the point of view of the validator,
+downtime is a severe problem.
+If the machine running the consensus client fails,
+the validator identity will stop validating.
+One way to mitigate this scenario
+is by having secondary nodes standing by,
+with a process to fail over quickly when the primary fails.
+A different way is to replace the node software
+with a distributed system that internally runs a consensus algorithm,
+turning the validator into a _distributed validator_.
+For example, a 3-node system can tolerate one node failing,
+and a 5-node system can tolerate two nodes failing.
+We could run those nodes on different machines in the same data center.
+In this case, the physical location is still a meaningful concept.
+Distributing validation over multiple machines in the same data center
+protects against some kinds of hardware failure,
+but not against e.g. natural disasters that might affect the entire facility.
+Therefore,
+we might distribute a single validator identity over multiple cities,
+and even multiple countries.
+
+### Summary
+
+While in simple cases it is possible to point to a single machine
+with a clear location and say
+“this is where validation happens”,
+in reality many blockchains consist of multiple pieces of software,
+that all play an essential role in the validation process,
+and these pieces of software can and often do run on different machines,
+in different physical locations.
+This means that it is not always possible
+to give a simple answer to the question of “where does the validator run?”.
+
 [^1]: Probably except for Antarctica.
       Antarctica doesn’t have a very stable high-bandwidth Internet connection.
