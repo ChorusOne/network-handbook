@@ -60,6 +60,9 @@ Don’t these validators at least have a clearly defined location?
 
 Let’s go over a few examples to illustrate the subtleties.
 
+[^1]: Probably except for Antarctica.
+Antarctica doesn’t have a very stable high-bandwidth Internet connection.
+
 ### Simple example: Ethereum anno 2022
 
 Prior to September 2022,
@@ -230,5 +233,104 @@ in different physical locations.
 This means that it is not always possible
 to give a simple answer to the question of “where does the validator run?”.
 
-[^1]: Probably except for Antarctica.
-      Antarctica doesn’t have a very stable high-bandwidth Internet connection.
+## How we pick locations
+
+As we explain in [the hardware layer chapter](the-hardware-layer.md),
+we work with multiple providers
+who offer servers in various locations.
+So how do we decide where to run particular node software?
+There are many considerations that factor into this:
+
+ * **Hardware availability.**
+   Some chains are not especially demanding on hardware resources,
+   and they can run well on most types of servers,
+   which are widely available.
+   Other chains have more specific requirements.
+   For example, Solana is quite sensitive to single-core performance.
+   If we have a faster CPU than network average,
+   our validator runs well.
+   If we would use a CPU that is slower than network average,
+   multiple validator performance metrics start to decrease,
+   and if the CPU is too slow,
+   the node software may not be able to keep up with the network at all.
+   To run well,
+   we use the latest generation CPUs,
+   and these are typically scarce.
+   Providers get them in limited batches,
+   and they may only be available in specific data centers.
+   Lead time can also differ from location to location
+   — sometimes we can get a server provisioned in a day in one location,
+   but it would take two weeks elsewhere
+   (the provider has to ship the parts there,
+   they may be dealing with supply chain challenges on their end, etc.).
+   As a different example,
+   some chains require a high-bandwidth network card.
+   These are less widely available, so this again restricts where we can run.
+ * **Location relative to peers.**
+   In general, the further a network packet has to travel,
+   the more room there is for something to go wrong.
+   Distributed systems are more stable and more performant
+   when nodes are located close to each other,
+   where latency and packet loss are low.
+   Of course there is a trade-off with here with the next point.
+   For example, nodes in South America and Australia
+   are often at a disadvantage stability-wise,
+   but they are making a valuable contribution to network resiliency.
+ * **Centralization.**
+   While being close to peers is good for stability,
+   being _too_ close is also risky:
+   if too many validators are in the same data center,
+   then if anything happens there
+   (e.g. a misconfiguration of critical network equipment,
+   fire or natural disaster at the site,
+   or regulatory or legal pressure),
+   it could be a hazard to the blockchain network as a whole.
+   We try to avoid running from data centers
+   that already have a large concentration of stake.
+ * **Redundancy.**
+   As explained in [the reliability chapter](reliable-systems.md),
+   for any node software we operate,
+   we generally run it on at least two different machines,
+   so that if the primary fails,
+   a secondary that is standing by can take over.
+   For maximum reliability,
+   we want failures to be uncorrelated.
+   That means that the secondary should be with a different provider,
+   in a different geographic location
+   — though again, there is a trade-off.
+   Although we can be a bit more lenient with a secondary,
+   because it’s not used as often,
+   it still needs to be close to peers while avoiding centralization risk.
+ * **Cost.**
+   Even if multiple locations are available that satisfy the above criteria,
+   not all of them may be cost-effective.
+ * **Preference for Europe.**
+   We spread our presence to avoid critical dependencies on a single location,
+   but spreading our infrastructure brings challenges of its own.
+   As we observed before,
+   distributed systems tend to become slower and less stable
+   when they are spead out further.
+   Although we have a global team,
+   and we operate servers worldwide,
+   the majority of our infrastructure is located in Europe
+   (including the UK and Switzerland).
+   Europe is diverse enough in terms of geography, jurisdictions, and providers,
+   to avoid creating single points of failure.
+   It is small enough that latency between servers is acceptable for most purposes,
+   and globally it is well-connected to both the US and Asia.
+
+To summarize,
+there are many factors that constrain where we can run a particular piece of software.
+We are able to operate servers worldwide,
+but the majority of our infrastructure is in Europe.
+Within Europe,
+we make a trade-off between
+the performance of our own node,
+network centralization,
+and cost-effectiveness.
+
+## Locations are not static
+
+Because Chorus One works with multiple providers in many locations,
+we have the ability to move workloads around and _test_ where they perform best.
+Also, CPU types change, peers change, etc.
