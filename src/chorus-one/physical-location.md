@@ -172,7 +172,7 @@ they are located in different countries.
 The split into an execution layer and consensus layer is far from the only complication.
 As Ethereum matured,
 and MEV (value that the block proposer can extract due to its privileged position) emerged,
-and different parties specialized in different parts of the block production pipeline.
+different parties specialized in different parts of the block production pipeline.
 At this point,
 _Proposer-Builder Separation_ (PBS) is commonplace on Ethereum.
 With PBS,
@@ -354,7 +354,7 @@ the optimal location changes over time!
    when hardware reaches the end of its lifespan,
    its replacement will not necessarily be in the same location.
  * **The set of peers changes, and peers move.**
-   We more our workloads around, and so do other node operators.
+   We move our workloads around, and so do other node operators.
    In addition to that, stake distributions change,
    and this can affect how valuable certain peers are.
    It’s good to be close to a peer who proposes many blocks,
@@ -411,7 +411,7 @@ To peers in the network,
 it looks like our validator identity
 suddenly jumping from one location to another.
 Our validator identity may be “located” in one city at one moment,
-and in a city several thousand kilomaters away the next.
+and in a city several thousand kilometers away the next.
 
 The details of the failover process
 (and whether we can do this at all)
