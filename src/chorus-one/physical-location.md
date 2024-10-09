@@ -246,11 +246,11 @@ There are many considerations that factor into this:
    and they can run well on most types of servers,
    which are widely available.
    Other chains have more specific requirements.
-   For example, Solana is quite sensitive to single-core performance.
+   For example, some chains are quite sensitive to single-core performance.
    If we have a faster CPU than network average,
    our validator runs well.
    If we would use a CPU that is slower than network average,
-   multiple validator performance metrics start to decrease,
+   validator performance metrics start to deteriorate,
    and if the CPU is too slow,
    the node software may not be able to keep up with the network at all.
    To run well,
@@ -272,7 +272,7 @@ There are many considerations that factor into this:
    Distributed systems are more stable and more performant
    when nodes are located close to each other,
    where latency and packet loss are low.
-   Of course there is a trade-off with here with the next point.
+   Of course there is a trade-off with the next point about centralization.
    For example, nodes in South America and Australia
    are often at a disadvantage stability-wise,
    but they are making a valuable contribution to network resiliency.
@@ -283,7 +283,7 @@ There are many considerations that factor into this:
    then if anything happens there
    (e.g. a misconfiguration of critical network equipment,
    fire or natural disaster at the site,
-   or regulatory or legal pressure),
+   or legal pressure),
    it could be a hazard to the blockchain network as a whole.
    We try to avoid running from data centers
    that already have a large concentration of stake.
@@ -329,8 +329,94 @@ the performance of our own node,
 network centralization,
 and cost-effectiveness.
 
-## Locations are not static
+## The optimal location is dynamic
+
+When we onboard a new network,
+we use the considerations listed above to pick a location.
+However, these considerations are not static;
+the optimal location changes over time!
+
+ * **Newer, faster CPUs get released regularly.**
+   A machine that is at the cutting edge of performance today,
+   which enables us to outperform other node operators,
+   may be too slow to even keep up with the network two years from now.
+   We migrate our most demanding workloads several times per year
+   as new hardware options become available,
+   and those new options
+   may be in a different data center than where the workload currently runs.
+   Even when performance is not an issue,
+   when hardware reaches the end of its lifespan,
+   its replacement will not necessarily be in the same location.
+ * **The set of peers changes, and peers move.**
+   We more our workloads around, and so do other node operators.
+   In addition to that, stake distributions change,
+   and this can affect how valuable certain peers are.
+   It’s good to be close to a peer who proposes many blocks,
+   because then you get to see many blocks quickly,
+   but if that peer loses stake and starts to propose fewer blocks,
+   that can make the location less attractive.
+   We constantly have to re-evaluate what the most effective location is,
+   while avoiding centralization risks for the network.
+ * **Networks evolve, trends change.**
+   As networks mature,
+   the node software tends to become more operationally complex,
+   with more parameters but also more constraints.
+   For example, following
+   [the introduction of PBS on Ethereum](#complex-example-ethereum-anno-2024),
+   it’s not just the location relative to peers that matters,
+   but also the location relative to the _relay_.
 
 Because Chorus One works with multiple providers in many locations,
 we have the ability to move workloads around and _test_ where they perform best.
-Also, CPU types change, peers change, etc.
+Our infrastructure is set up to be distributed,
+and it is relatively easy for us to move workloads around,
+and try out new locations and machine types.
+
+## Machine roles are dynamic
+
+The set of machines that we use for running node software changes over time,
+to optimize the location as explained in the previous sections.
+These changes happen on a timescale of weeks to months.
+Because we operate many different blockchain networks,
+our fleet is large enough that we add and remove machines on a weekly basis,
+but for a given network,
+the set of locations where we run the node software is generally stable
+for weeks to months.
+
+Even though we don’t move the node software around that quickly,
+we can change the _role_ that a node performs much faster.
+As explained before,
+we generally run multiple instances of the node software for redundancy.
+The details vary from network to network,
+but typically one instance will be actively validating
+(participating in consensus and proposing blocks).
+Other nodes download and validate a copy of the chain,
+so they are ready to take over validator duties at any time,
+but they are not participating in consensus or proposing blocks.
+From the point of view of the network,
+they are just unstaked peers.
+When needed
+(in the case of hardware problems,
+but also to e.g. perform a software update),
+we can stop validation at the current instance,
+and promote a secondary instance to start validating.
+This process is called _failover_.
+To peers in the network,
+it looks like our validator identity
+suddenly jumping from one location to another.
+Our validator identity may be “located” in one city at one moment,
+and in a city several thousand kilomaters away the next.
+
+The details of the failover process
+(and whether we can do this at all)
+vary from network to network,
+but it generally takes seconds to minutes,
+and we can perform it multiple times per day,
+and even per hour if needed.
+We do not just use this process to perform zero-downtime updates,
+and to guarantee reliability.
+We can also use this process to experiment,
+and measure the impact of location on performance.
+This means that the location of our validator identity
+will generally move around between locations,
+sometimes multiple times per day.
