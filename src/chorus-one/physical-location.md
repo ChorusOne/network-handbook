@@ -11,8 +11,10 @@ We often get asked “Where do your validators run?”
 
 To give a more complete answer,
 we have to explain some things about how validation works,
-and what goes into choosing a location.
-Let’s dive in!
+and what goes into picking a location.
+The impatient can jump straight to [the summary](#summary),
+but for the full details,
+let’s dive in!
 
 ## Where is software located?
 
@@ -221,7 +223,8 @@ Therefore,
 we might distribute a single validator identity over multiple cities,
 and even multiple countries.
 
-### Summary
+<!-- This section has a named anchor to avoid a clash with the Summary h2 -->
+### Summary {#summary-location}
 
 While in simple cases it is possible to point to a single machine
 with a clear location and say
@@ -318,6 +321,9 @@ There are many considerations that factor into this:
    to avoid creating single points of failure.
    It is small enough that latency between servers is acceptable for most purposes,
    and globally it is well-connected to both the US and Asia.
+   We do operate servers in other continents,
+   in particular we have a small footprint in Asia,
+   but the vast majority of our servers are located in Europe.
 
 To summarize,
 there are many factors that constrain where we can run a particular piece of software.
@@ -420,3 +426,27 @@ and measure the impact of location on performance.
 This means that the location of our validator identity
 will generally move around between locations,
 sometimes multiple times per day.
+
+## Summary
+
+ * The vast majority of the servers that we operate are located in Europe
+   (including the UK and Switzerland).
+ * Blockchain node software often consists of multiple components
+   that each play an essential role in validation.
+   These components can run on different machines,
+   which may be located in different cities or even countries.
+ * When we choose where to run a piece of software,
+   we have to consider many factors,
+   including hardware availability,
+   location relative to peers,
+   network decentralization,
+   redundancy, and cost effectiveness.
+ * The optimal location changes over time.
+   The set of machines that we use for a particular blockchain network
+   is not static,
+   it evolves on a timescale of weeks to months.
+ * In order to guarantee high uptime,
+   we run multiple instances of the node software.
+   The particular instance that is validating on behalf of our validator identity
+   can vary from one moment to the next.
+   In some cases, this can change several times per hour.
