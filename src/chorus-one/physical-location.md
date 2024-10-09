@@ -17,8 +17,7 @@ Let’s dive in!
 ## Where is software located?
 
 While the question “where does it run?” sounds simple enough,
-it is not always a meaningful question to ask,
-primarily because of ambiguity about what “it” is.
+it is not always clear what “it” is.
 
 Software consists of computer programs that get executed by a chip.
 In our case,
@@ -63,7 +62,7 @@ Let’s go over a few examples to illustrate the subtleties.
 [^1]: Probably except for Antarctica.
 Antarctica doesn’t have a very stable high-bandwidth Internet connection.
 
-### Simple example: Ethereum anno 2022
+### Simple example: Ethereum anno 2015
 
 Prior to September 2022,
 Ethereum was powered by Proof of Work.
@@ -110,7 +109,7 @@ it does not sign them directly.
 At Chorus One we use hardware security modules (HSMs) for signing where possible.
 The hardware security modules we work with are external USB devices
 connected to a server.
-In some cases we connect them directly to the machine
+In the past we connected them directly to the machine
 where the validator node software runs,
 but this has a major downside:
 it makes it difficult to move workloads around.
@@ -122,7 +121,8 @@ or even weeks when shipping to a different country.
 To mitigate this, we use _remote signing_.
 We designate some machines as **signers**,
 and connect the HSMs to them.
-Validators then connect to the signers over an internal network to request a signature.
+Validators then connect to the signers
+over a secure internal network to request a signature.
 For stability and performance reasons,
 the signer machines need to be reasonably close to validators,
 but they need not be in the same data center,
@@ -170,11 +170,11 @@ they are located in different countries.
 The split into an execution layer and consensus layer is far from the only complication.
 As Ethereum matured,
 and MEV (value that the block proposer can extract due to its privileged position) emerged,
-different parties specialized in different parts of the block production pipeline.
+and different parties specialized in different parts of the block production pipeline.
 At this point,
 _Proposer-Builder Separation_ (PBS) is commonplace on Ethereum.
 With PBS,
-blocks are not built by the validator node software;
+most blocks are not built by the validator node software;
 the role of the validator is reduced to merely _proposing_ a block.
 Constructing the block itself is outsourced to third party _block builders_.
 While these builders are ultimately responsible for building a block,
@@ -195,7 +195,7 @@ in different locations.
 
 On top of Proposer-Builder Separation,
 _Distributed Validator Technology_
-is a new emerging trend in the Ethereum ecosystem
+is an emerging trend in the Ethereum ecosystem
 that adds a new layer of complexity.
 While Ethereum is a distributed system
 that remains available even when individual validators fail,
@@ -226,7 +226,7 @@ and even multiple countries.
 While in simple cases it is possible to point to a single machine
 with a clear location and say
 “this is where validation happens”,
-in reality many blockchains consist of multiple pieces of software,
+in reality many blockchains consist of multiple pieces of software
 that all play an essential role in the validation process,
 and these pieces of software can and often do run on different machines,
 in different physical locations.
