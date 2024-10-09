@@ -429,8 +429,11 @@ sometimes multiple times per day.
 
 ## Summary
 
- * The vast majority of the servers that we operate are located in Europe
-   (including the UK and Switzerland).
+ * The vast majority of the servers that we operate are located in Europe,
+   distributed over multiple providers and data centers in various countries.
+   As of October 2024 we do not operate node software in the United States,
+   although we have done so in the past,
+   and we may do so again in the future.
  * Blockchain node software often consists of multiple components
    that each play an essential role in validation.
    These components can run on different machines,
@@ -441,8 +444,8 @@ sometimes multiple times per day.
    location relative to peers,
    network decentralization,
    redundancy, and cost effectiveness.
- * The optimal location changes over time.
-   The set of machines that we use for a particular blockchain network
+ * Because the optimal location changes over time,
+   the set of machines that we use for a particular blockchain network
    is not static,
    it evolves on a timescale of weeks to months.
  * In order to guarantee high uptime,
@@ -450,3 +453,45 @@ sometimes multiple times per day.
    The particular instance that is validating on behalf of our validator identity
    can vary from one moment to the next.
    In some cases, this can change several times per hour.
+
+## Sure, but where do your validators run?
+
+Validation services are performed by Chorus One AG,
+a Swiss stock corporation incorporated in Zug, Switzerland.
+[You can find our address at chorus.one](https://chorus.one/contact-us).
+
+### Available locations for white-label validators
+
+If you are interested in white-label validation services
+and you have a preference for a particular region,
+please let us know what you have in mind.
+We likely already work with providers in that region
+(even if it’s not in Europe),
+and we can very likely find a solution that accomodates your needs.
+Having said that,
+[there are many factors that affect how we decide where to run a piece of software](#how-we-pick-locations),
+and adding constraints limits our ability to provide the best service.
+Restricting locations may come at the expense of increased cost and lead time,
+and can impact the performance of your validator.
+
+If you have regulatory or legal requirements that put restrictions on the region,
+we can work with you to clarify the interpretation of such requirements
+in the context of a particular blockchain network.
+[As we explained above](#where-is-software-located),
+distributed systems do not always have a clearly defined location,
+and in a software system that is ultimately the result
+of an interaction between many programs that run on many servers,
+it is not always clear where to draw the boundary
+of what is considered part of the validator.
+
+### Location snapshots
+
+If you need a point-in-time snapshot of the locations
+where we currently operate node software for a particular blockchain network,
+we can provide this on request.
+As explained in this chapter,
+the set of locations where we run node software changes over time,
+so this snapshot is likely to become outdated in a few weeks to months.
+Furthermore,
+the role of the different nodes that are involved
+can change on even shorter timescales.
