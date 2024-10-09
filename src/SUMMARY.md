@@ -7,6 +7,7 @@
    - [The cloud computing vs. bare metal trade-off](chorus-one/cloud-vs-bare-metal.md)
    - [The unique challenges of bare metal](chorus-one/bare-metal-challenges.md)
    - [Building reliable systems from unreliable parts](chorus-one/reliable-systems.md)
+   - [Physical location](chorus-one/physical-location.md)
    - [Workload placement](chorus-one/workload-placement.md)
    - [Monitoring and alerting](chorus-one/monitoring-alerting.md)
    - [Oncall rotation](chorus-one/oncall.md)
