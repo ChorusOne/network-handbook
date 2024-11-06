@@ -86,10 +86,10 @@ At Chorus One we employ the _Sentry Node Architecture_ for Cosmos-based blockcha
 This means that we run multiple instances of the node software,
 on different machines:
 
- * Multiple **sentries**.
+ * Multiple _sentries_.
    These nodes connect to peers in the network
    to receive and broadcast blocks and votes.
- * A single **validator**.
+ * A single _validator_.
    The validator node does not connect directly to other peers in the network.
    To shield it from abuse, it connects only to our own sentry nodes.
    For redundancy,
@@ -121,7 +121,7 @@ which can take hours,
 or even weeks when shipping to a different country.
 
 To mitigate this, we use _remote signing_.
-We designate some machines as **signers**,
+We designate some machines as _signers_,
 and connect the HSMs to them.
 Validators then connect to the signers
 over a secure internal network to request a signature.
@@ -154,17 +154,26 @@ and even in different countries.
 ### Complex example: Ethereum anno 2024
 
 Since Ethereum moved to Proof of Stake in September 2022,
-operating a basic Ethereum validator requires _two_ pieces of node software:
+operating a basic Ethereum validator requires multiple pieces of node software:
 
- * An **execution layer client**, such as Geth.
- * A **consensus layer client**, such as Lighthouse.
+ * An _execution client_, such as Geth.
+ * A _validator client_ for the consensus layer.
+ * A _beacon node_ for the consensus layer.
+ * _PBS middleware_, such as MEV-Boost.
+   This is optional in theory, but always used in practice.
+ * Possibly _DVT middleware_.
 
-These nodes can run on different machines in different geographic locations.
+The validator client and beacon node are implemented in the same software package,
+such as Lighthouse,
+but they are distinct modes of operation.
+All three node types are necessary to operate a validator identity,
+and all three can run on different machines,
+in different geographic locations!
+
 As of October 2024,
-our execution layer clients and consensus layer clients
-are located in different data centers
-(the consensus layer runs in a public cloud,
-while execution layer clients run on bare metal).
+our nodes are located in different data centers
+(the validator clients runs in a public cloud,
+while execution layer clients and beacon nodes run on bare metal).
 In one case,
 while these data centers are geographically close,
 they are located in different countries.
@@ -188,11 +197,17 @@ To top things off,
 the validator node software and block builders
 do not communicate directly with one another:
 this involves yet another intermediary called the _relay_.
+To involve the relay into the block production pipeline,
+we need to run yet another piece of node software:
+the PBS middleware, implemented by MEV-Boost.
 To summarize,
 block production on Ethereum involves
 _searchers_, _block builders_, _relays_ (all external third parties),
-and an _execution client_ and _consensus client_ (both operated by Chorus One).
-All of these generally run on different machines,
+and an _execution client_,
+_validator client_,
+_PBS middleware_,
+and _beacon node_ (operated by Chorus One).
+Most of these run on different machines,
 in different locations.
 
 On top of Proposer-Builder Separation,
@@ -204,12 +219,15 @@ that remains available even when individual validators fail,
 the network penalizes validators that forfeit their duties,
 so from the point of view of the validator,
 downtime is a severe problem.
-If the machine running the consensus client fails,
+It is possible to run redundant instances
+of the execution client and beacon node,
+but only one validator client instance can be validating at a time.
+If the machine running the validator client fails,
 the validator identity will stop validating.
 One way to mitigate this scenario
 is by having secondary nodes standing by,
 with a process to fail over quickly when the primary fails.
-A different way is to replace the node software
+A different way is to replace the validator node software
 with a distributed system that internally runs a consensus algorithm,
 turning the validator into a _distributed validator_.
 For example, a 3-node system can tolerate one node failing,
