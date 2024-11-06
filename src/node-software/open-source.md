@@ -87,7 +87,7 @@ before users of the software have had a chance to update.
 There are two ways of handling this:
 
 * **Pre-announce the existence of the vulnerability.**
-In the announcement, include date and time at which a new version will be published.
+In the announcement, include a date and time at which a new version will be published.
 This ensures that we can have an engineer standing by 
 to act quickly at the time of the release.
 
