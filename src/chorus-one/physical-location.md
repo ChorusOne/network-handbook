@@ -312,7 +312,7 @@ There are many considerations that factor into this:
    but spreading our infrastructure brings challenges of its own.
    As we observed before,
    distributed systems tend to become slower and less stable
-   when they are spead out further.
+   when they are spread out further.
    Although we have a global team,
    and we operate servers worldwide,
    the majority of our infrastructure is located in Europe
@@ -395,8 +395,8 @@ As explained before,
 we generally run multiple instances of the node software for redundancy.
 The details vary from network to network,
 but typically one instance will be actively validating
-(participating in consensus and proposing blocks).
-Other nodes download and validate a copy of the chain,
+(participating in consensus and proposing blocks),
+other nodes download and validate a copy of the chain,
 so they are ready to take over validator duties at any time,
 but they are not participating in consensus or proposing blocks.
 From the point of view of the network,
@@ -414,7 +414,7 @@ Our validator identity may be “located” in one city at one moment,
 and in a city several thousand kilometers away the next.
 
 The details of the failover process
-(and whether we can do this at all)
+(and whether it is possible at all)
 vary from network to network,
 but it generally takes seconds to minutes,
 and we can perform it multiple times per day,
@@ -424,7 +424,7 @@ and to guarantee reliability.
 We can also use this process to experiment,
 and measure the impact of location on performance.
 This means that the location of our validator identity
-will generally move around between locations,
+can move around between locations,
 sometimes multiple times per day.
 
 ## Summary
@@ -467,7 +467,7 @@ and you have a preference for a particular region,
 please let us know what you have in mind.
 We likely already work with providers in that region
 (even if it’s not in Europe),
-and we can very likely find a solution that accomodates your needs.
+and we can very likely find a solution that accommodates your needs.
 Having said that,
 [there are many factors that affect how we decide where to run a piece of software](#how-we-pick-locations),
 and adding constraints limits our ability to provide the best service.
