@@ -10,7 +10,7 @@ to be able to handle those alerts within minutes.
 
 The majority of our engineering team consists of what we call _platform engineers_.
 Some companies call this role _site reliability engineering_ instead.
-Platform engineers are repsponsible for our infrastructure,
+Platform engineers are responsible for our infrastructure,
 operating our chains,
 and periodically,
 for handling alerts.
