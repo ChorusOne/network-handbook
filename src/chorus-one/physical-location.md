@@ -154,19 +154,24 @@ and even in different countries.
 ### Complex example: Ethereum anno 2024
 
 Since Ethereum moved to Proof of Stake in September 2022,
-operating a basic Ethereum validator requires multiple pieces of node software:
+operating a basic Ethereum validator requires multiple pieces of software:
 
  * An _execution client_, such as Geth.
  * A _validator client_ for the consensus layer.
  * A _beacon node_ for the consensus layer.
  * _PBS middleware_, such as MEV-Boost.
    This is optional in theory, but always used in practice.
- * Possibly _DVT middleware_.
+ * Possibly _remote signing_ software, such as Web3Signer.
+ * Possibly _DVT (Distributed Validator Technology)_ software.
 
 The validator client and beacon node are implemented in the same software package,
 such as Lighthouse,
 but they are distinct modes of operation.
-All three node types are necessary to operate a validator identity,
+As with Cosmos networks,
+the validator client may outsource signing to a remote signer.
+The execution client,
+validator client,
+and beacon node are all necessary to operate a validator identity,
 and all three can run on different machines,
 in different geographic locations!
 
