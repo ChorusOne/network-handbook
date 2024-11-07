@@ -148,7 +148,7 @@ To summarize,
 our setup for validating Cosmos-based networks involves three types of machines:
 **sentries**, **validators**, and **signers**.
 All of them play an essential role in the validation process.
-These machines can be located in different cites,
+These machines can be located in different cities,
 and even in different countries.
 
 ### Complex example: Ethereum anno 2024
