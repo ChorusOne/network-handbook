@@ -37,6 +37,16 @@ To configure private keys,
 either read them from a file at a configurable location,
 or load them from an environment variable.
 
+#### Do not modify the configuration file. {.p1 #config-read-only}
+A configuration file is an _input_ to the node software.
+It’s something that’s managed by us,
+through our deployment automation.
+The node software should only read from this file,
+not write to it.
+If something needs to be persisted,
+that is probably state that should go in the data directory (see below),
+rather than in a configuration file.
+
 #### Ensure data directories are configurable. {.p1 #datadir-configurable}
 We work with machines that have multiple disks,
 with multiple filesystems.
