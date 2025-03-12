@@ -19,6 +19,7 @@
    - [Release engineering](node-software/release-engineering.md)
    - [Monitoring](node-software/monitoring.md)
    - [Configuration](node-software/configuration.md)
+   - [Identity and key management](node-software/identity-key-management.md)
    - [Communication channels]() <!-- node-software/communication-channels.md -->
    - [Runtime environment]() <!-- node-software/runtime-environment.md -->
    - [Hardware requirements]() <!-- node-software/hardware-requirements.md -->
