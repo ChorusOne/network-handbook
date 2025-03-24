@@ -20,3 +20,8 @@ jobs:
         run: |
           ./mdbook build
           ./mdbook test
+
+      - name: Confirm that the checklist is up to date
+        run: |
+          ./export_checklist.py
+          git diff --exit-code
