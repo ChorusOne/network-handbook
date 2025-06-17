@@ -36,7 +36,7 @@ Private keys shared between multiple parties are not private,
 and should be considered compromised.
 
 #### Ensure keys used for routine operations can be rotated. {.p2 #key-rotation}
-As the our identity is tied to our private key,
+As our identity is tied to our private key,
 this key is extremely sensitive.
 If it is compromised,
 we lose our entire validator,
