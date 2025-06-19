@@ -21,7 +21,8 @@ and patterns that emerged from operating nodes at scale,
 which may not be obvious to the developers when launching a new network.
 
 Aside from helping blockchain networks to improve,
-this book offers our delegators a glimpse into how we operate our nodes.
+this book offers our delegators and counterparties
+a glimpse into how we operate our nodes.
 Transparency is a core value at Chorus One,
 and we believe that by being transparent,
 we can help you make a more informed decision of which validator to delegate to.
