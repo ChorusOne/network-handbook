@@ -31,7 +31,23 @@ to be terminated and restarted elsewhere at short notice by a generic workload s
 In addition, for some high-performance blockchains we tune kernel parameters for that particular blockchain.
 
 Because of these reasons,
-we allocate our blockchain workloads manually to machines.
+we allocate our blockchain workloads statically to machines.
 We do use Kubernetes for some internal applications and stateless workloads
 that just need to run _somewhere_, but for blockchain workloads,
 we want to have full control over workload placement.
+Control over placement does not mean that our infrastructure is rigid,
+or slow to change.
+On the contrary,
+we have an advanced configuration system
+and internal tools
+that enable us to change workload placement at short notice.
+We have many servers available that are capable of running a given workload.
+We ensure that workloads have a secondary (a _hot spare_) where possible,
+so we can fail over workloads in seconds to minutes.
+Even reconfiguring where secondaries run
+is something we can do in minutes to hours.
+In short, our infrastructure is fairly dynamic:
+we can and do move workloads around regularly.
+This process is automated, but not _autonomous_.
+Due to the complexity of constraints and the value at stake,
+we keep a human in the loop to make a placement decision.
